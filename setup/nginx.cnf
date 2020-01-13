@@ -1,7 +1,7 @@
 daemon off;
 worker_processes  1;
 
-error_log  /home/appuser/data/nginx/log/nginx_error.log;
+error_log  /home/appuser/data/nginx/log/nginx.log;
 pid        /home/appuser/app/nginx/nginx.pid;
 
 events {
@@ -16,7 +16,7 @@ http {
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
-    access_log  /home/appuser/data/nginx/log/nginx_access.log  main;
+    access_log  /home/appuser/data/nginx/log/nginx.log  main;
 
     # fix for very long server names
     server_names_hash_bucket_size 128;
