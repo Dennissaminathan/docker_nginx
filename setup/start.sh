@@ -15,20 +15,22 @@ else
 fi
 
 # delete old config files
-if [ -f /home/appuser/data/nginx/conf.d/nginx_init.cnf ]; then echo "delete old config file"; rm /home/appuser/data/nginx/conf.d/nginx_init.cnf; fi
+if [ -f /home/appuser/data/nginx/nginx.cnf ]; then echo "delete old config file"; rm /home/appuser/data/nginx/nginx.cnf; fi
+if [ -f /home/appuser/data/nginx/conf.d/nginx_init.conf ]; then echo "delete old config file"; rm /home/appuser/data/nginx/conf.d/nginx_init.conf; fi
 
 echo "Use config template which is stored in /home/appuser/app"
-cp /home/appuser/app/nginx_init.conf /home/appuser/data/conf.d/nginx_init.conf
+cp /home/appuser/app/nginx/nginx.cnf /home/appuser/data/nginx/nginx.cnf
+cp /home/appuser/app/nginx/nginx_init.conf /home/appuser/data/nginx/conf.d/nginx_init.conf
 
 echo "patch configuration file"
-sed -i -e "s/#DNS_IPADDR#/${DNS_IPADDR}/g" /home/appuser/data/conf.d/nginx_init.conf
-sed -i -e "s/#NGX_PORT#/${NGX_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
-sed -i -e "s/#DNS_INITDOMAIN#/${DNS_INITDOMAIN}/g" /home/appuser/data/conf.d/nginx_init.conf
-sed -i -e "s/#GT_PORT#/${GT_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
-sed -i -e "s/#JKS_PORT#/${JKS_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
-sed -i -e "s/#VLT_PORT#/${VLT_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
-sed -i -e "s/#NXS_PORT#/${NXS_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
-sed -i -e "s/#NXS_DOCKERPORT#/${NXS_DOCKERPORT}/g" /home/appuser/data/conf.d/nginx_init.conf
+sed -i -e "s/#DNS_IPADDR#/${DNS_IPADDR}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#NGX_PORT#/${NGX_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#DNS_INITDOMAIN#/${DNS_INITDOMAIN}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#GT_PORT#/${GT_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#JKS_PORT#/${JKS_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#VLT_PORT#/${VLT_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#NXS_PORT#/${NXS_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#NXS_DOCKERPORT#/${NXS_DOCKERPORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 
 if [ "$INITIALSTART" == "1" ]
 then
@@ -40,10 +42,10 @@ else
 fi
 
 echo "start.sh: Test nginx configuration file"
-nginx -t -c /home/appuser/data/nginx/nginx.cnf
+#nginx -t -c /home/appuser/data/nginx/nginx.cnf
 
 echo "start.sh: Start nginx"
-nginx -c /home/appuser/data/nginx/nginx.cnf
+#nginx -c /home/appuser/data/nginx/nginx.cnf
 
-#touch /tmp/debug.log
-#tail -f /tmp/debug.log
+touch /tmp/debug.log
+tail -f /tmp/debug.log

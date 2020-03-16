@@ -32,8 +32,8 @@ RUN mkdir /home/appuser/app/nginx \
 	&& mkdir /home/appuser/data/nginx/conf.d \
 	&& mkdir /home/appuser/data/nginx/html
 
-COPY ./setup/nginx.cnf /home/appuser/data/nginx/nginx.cnf
-COPY ./setup/conf.d/nginx_init.conf /home/appuser/data/nginx/conf.d
+COPY ./setup/nginx.cnf /home/appuser/app/nginx/nginx.cnf
+COPY ./setup/conf.d/nginx_init.conf /home/appuser/app/nginx/nginx_init.conf
 COPY ./setup/start.sh /home/appuser/app/nginx/start.sh
 COPY ./setup/index.html /home/appuser/data/nginx/html/index.html
 
