@@ -14,6 +14,22 @@ else
 	echo "start.sh: It's not the first start, skip first start section"
 fi
 
+# delete old config files
+if [ -f /home/appuser/data/nginx/conf.d/nginx_init.cnf ]; then echo "delete old config file"; rm /home/appuser/data/nginx/conf.d/nginx_init.cnf; fi
+
+echo "Use config template which is stored in /home/appuser/app"
+cp /home/appuser/app/nginx_init.conf /home/appuser/data/conf.d/nginx_init.conf
+
+echo "patch configuration file"
+sed -i -e "s/#DNS_IPADDR#/${DNS_IPADDR}/g" /home/appuser/data/conf.d/nginx_init.conf
+sed -i -e "s/#NGX_PORT#/${NGX_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
+sed -i -e "s/#DNS_INITDOMAIN#/${DNS_INITDOMAIN}/g" /home/appuser/data/conf.d/nginx_init.conf
+sed -i -e "s/#GT_PORT#/${GT_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
+sed -i -e "s/#JKS_PORT#/${JKS_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
+sed -i -e "s/#VLT_PORT#/${VLT_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
+sed -i -e "s/#NXS_PORT#/${NXS_PORT}/g" /home/appuser/data/conf.d/nginx_init.conf
+sed -i -e "s/#NXS_DOCKERPORT#/${NXS_DOCKERPORT}/g" /home/appuser/data/conf.d/nginx_init.conf
+
 if [ "$INITIALSTART" == "1" ]
 then
 	echo "start.sh: First start. Create initial certificates"
