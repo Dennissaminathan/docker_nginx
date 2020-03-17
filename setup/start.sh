@@ -42,10 +42,10 @@ else
 fi
 
 echo "start.sh: Test nginx configuration file"
-#nginx -t -c /home/appuser/data/nginx/nginx.cnf
+nginx -t -c /home/appuser/data/nginx/nginx.cnf
 
 echo "start.sh: Start nginx"
-#nginx -c /home/appuser/data/nginx/nginx.cnf
+nginx -c /home/appuser/data/nginx/nginx.cnf
 
-touch /tmp/debug.log
-tail -f /tmp/debug.log
+#touch /tmp/debug.log
+#tail -f /tmp/debug.log
