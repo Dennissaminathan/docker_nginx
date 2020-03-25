@@ -29,6 +29,8 @@ sed -i -e "s/#DNS_INITDOMAIN#/${DNS_INITDOMAIN}/g" /home/appuser/data/nginx/conf
 sed -i -e "s/#GT_PORT#/${GT_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 sed -i -e "s/#JKS_PORT#/${JKS_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 sed -i -e "s/#VLT_PORT#/${VLT_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#KC_PORT#/${KC_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#KC_MGMTPORT#/${KC_MGMTPORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 sed -i -e "s/#NXS_PORT#/${NXS_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 sed -i -e "s/#NXS_DOCKERPORT#/${NXS_DOCKERPORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 
