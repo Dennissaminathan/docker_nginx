@@ -25,6 +25,7 @@ cp /home/appuser/app/nginx/nginx_init.conf /home/appuser/data/nginx/conf.d/nginx
 echo "patch configuration file"
 sed -i -e "s/#DNS_IPADDR#/${DNS_IPADDR}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 sed -i -e "s/#NGX_PORT#/${NGX_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
+sed -i -e "s/#LBK_PORT#/${LBK_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 sed -i -e "s/#DNS_INITDOMAIN#/${DNS_INITDOMAIN}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 sed -i -e "s/#GT_PORT#/${GT_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
 sed -i -e "s/#JKS_PORT#/${JKS_PORT}/g" /home/appuser/data/nginx/conf.d/nginx_init.conf
