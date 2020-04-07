@@ -16,6 +16,7 @@ RUN apk update \
 	pcre \
 	libbz2 \
 	libressl \
+       libcap \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/cache/apk/*
 
@@ -81,6 +82,8 @@ RUN cd /home/appuser/app/nginx-install && ./configure \
 
 RUN chown -R appuser:appuser /home/appuser/data/nginx \
 	&& chown -R appuser:appuser /home/appuser/app/nginx
+
+RUN setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/nginx
 
 USER appuser
 

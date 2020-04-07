@@ -44,11 +44,12 @@ else
 	echo "start.sh: It's not the first start, skip first start section"
 fi
 
+#touch /tmp/debug.log
+#tail -f /tmp/debug.log
+
 echo "start.sh: Test nginx configuration file"
 nginx -t -c /home/appuser/data/nginx/nginx.cnf
 
 echo "start.sh: Start nginx"
 nginx -c /home/appuser/data/nginx/nginx.cnf
 
-#touch /tmp/debug.log
-#tail -f /tmp/debug.log
